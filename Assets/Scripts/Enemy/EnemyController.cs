@@ -1,47 +1,97 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using Enemy.Pool;
+using Extensions.Enumerable;
 using UnityEngine;
 
 namespace Enemy
 {
+    [RequireComponent(typeof(EnemyPool))]
     public class EnemyController : MonoBehaviour
     {
-        [SerializeField] private EnemySpawner enemySpawner;
-        [SerializeField] private float spawnDelay = 2f;
+        [SerializeField] private float spawnDelay = 1f;
+        [SerializeField] private int maxEnemies = 3;
 
-        private EnemyView _currentEnemy;
-        private float _timeFromLastEnemy;
+        private readonly List<EnemyView> _currentEnemies = new();
+        private EnemyPool _enemyPool;
+        private Coroutine _spawnCoroutine;
 
         public Action EnemyKilled;
-
-        public float GetRespawnProgress() => _timeFromLastEnemy / spawnDelay;
+        public Action<float> RespawnProgress;
 
         public void TryToHitEnemy()
         {
-            if (!_currentEnemy)
+            if (_currentEnemies.IsNullOrEmpty())
             {
                 Debug.Log("No enemy to hit");
                 return;
             }
 
-            _currentEnemy.Die();
-            _currentEnemy = null;
+            EnemyView firstEnemy = _currentEnemies.FirstOrDefault();
 
-            EnemyKilled?.Invoke();
+            if (firstEnemy != null)
+            {
+                firstEnemy.Die();
+                _currentEnemies.Remove(firstEnemy);
+                EnemyKilled?.Invoke();
+            }
         }
 
-        private void Update()
-        {
-            if (_currentEnemy) return;
+        private void SpawnEnemy() => SpawnEnemy(true);
 
-            if (_timeFromLastEnemy > spawnDelay)
+        private void SpawnEnemy(bool withTimer)
+        {
+            if (_currentEnemies.Count >= maxEnemies)
             {
-                _currentEnemy = enemySpawner.SpawnEnemy();
-                _timeFromLastEnemy = 0f;
+                Debug.Log("Already have max enemies");
+                _spawnCoroutine = null;
+                return;
             }
-            else
+
+            if (!withTimer)
             {
-                _timeFromLastEnemy += Time.deltaTime;
+                _currentEnemies.Add(_enemyPool.Spawn());
             }
+
+            _spawnCoroutine ??= StartCoroutine(SpawnEnemyTimer());
+        }
+
+        private IEnumerator SpawnEnemyTimer()
+        {
+            float timer = 0f;
+
+            while (timer < spawnDelay)
+            {
+                timer += Time.deltaTime;
+                RespawnProgress?.Invoke(timer / spawnDelay);
+                yield return null;
+            }
+
+            _currentEnemies.Add(_enemyPool.Spawn());
+            RespawnProgress?.Invoke(0f);
+
+            _spawnCoroutine = null;
+            SpawnEnemy();
+        }
+
+        private void Awake()
+        {
+            _enemyPool = GetComponent<EnemyPool>();
+        }
+
+        private void Start()
+        {
+            SpawnEnemy(false);
+            SpawnEnemy();
+
+            EnemyKilled += SpawnEnemy;
+        }
+
+        private void OnDestroy()
+        {
+            EnemyKilled -= SpawnEnemy;
         }
     }
 }

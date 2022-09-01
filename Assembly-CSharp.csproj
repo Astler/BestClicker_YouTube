@@ -45,8 +45,13 @@
      <Compile Include="Assets/Scripts/Enemy/EnemyView.cs" />
      <Compile Include="Assets/Scripts/Enemy/EnemyController.cs" />
      <Compile Include="Assets/Scripts/Data/PlayerPrefsData.cs" />
-     <Compile Include="Assets/Scripts/Enemy/EnemySpawner.cs" />
-     <Compile Include="Assets/Scripts/GameInstaller.cs" />
+     <Compile Include="Assets/Scripts/Enemy/Pool/EnemyPool.cs" />
+     <Compile Include="Assets/Scripts/ProjectContext.cs" />
+     <Compile Include="Assets/Scripts/Extensions/UserInterface/UserInterfaceExtensions.cs" />
+     <Compile Include="Assets/Scripts/Enemy/Pool/IPoolElement.cs" />
+     <Compile Include="Assets/Scripts/Enemy/Pool/IPool.cs" />
+     <Compile Include="Assets/Scripts/Enemy/Data/EnemyViewInfo.cs" />
+     <Compile Include="Assets/Scripts/Extensions/Enumerable/EnumerableExtensions.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />

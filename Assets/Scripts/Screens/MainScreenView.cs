@@ -1,4 +1,5 @@
 using System;
+using Extensions.UserInterface;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,16 +13,10 @@ namespace Screens
         [SerializeField] private Image respawnProgress;
 
         public event Action ButtonClicked;
-        
-        public void SetKilledScore(int killed)
-        {
-            killsScoreText.text = killed.ToString();
-        }
 
-        public void SetRespawnProgress(float progress)
-        {
-            respawnProgress.fillAmount = progress;
-        }
+        public void SetKilledScore(int killed) => killsScoreText.SetText(killed);
+
+        public void SetRespawnProgress(float progress) => respawnProgress.fillAmount = progress;
 
         private void Awake()
         {

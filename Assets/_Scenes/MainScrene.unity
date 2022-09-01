@@ -1166,6 +1166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75fc129cb1e1b4c93832c134bcdc843b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolSize: 5
   enemyPrefab: {fileID: 1537923523438568202, guid: d3f0c96c8e0ee4133b371acc169eaf6c, type: 3}
   spawnPosition: {fileID: 1313954244}
 --- !u!114 &1258385792
@@ -1180,8 +1181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2761f6e5906b848eca1ff118f0446578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawner: {fileID: 1258385791}
-  spawnDelay: 2
+  spawnDelay: 1
+  maxEnemies: 3
 --- !u!1 &1313954243
 GameObject:
   m_ObjectHideFlags: 0

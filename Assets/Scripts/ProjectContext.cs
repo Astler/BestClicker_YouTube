@@ -1,10 +1,9 @@
-using System;
 using Data;
 using Enemy;
 using Screens;
 using UnityEngine;
 
-public class GameInstaller : MonoBehaviour
+public class ProjectContext : MonoBehaviour
 {
     [SerializeField] private MainScreenView mainScreenView;
     [SerializeField] private EnemyController enemyController;
@@ -15,11 +14,13 @@ public class GameInstaller : MonoBehaviour
         mainScreenView.SetKilledScore(PlayerPrefsData.KilledEnemies);
 
         enemyController.EnemyKilled += OnEnemyKilled;
+        enemyController.RespawnProgress += mainScreenView.SetRespawnProgress;
     }
 
-    private void Update()
+    private void OnDestroy()
     {
-        mainScreenView.SetRespawnProgress(enemyController.GetRespawnProgress());
+        enemyController.EnemyKilled += OnEnemyKilled;
+        enemyController.RespawnProgress += mainScreenView.SetRespawnProgress;
     }
 
     private void OnEnemyKilled()
