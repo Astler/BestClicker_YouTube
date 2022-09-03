@@ -9,5 +9,9 @@ namespace Extensions.Enumerable
         {
             return list == null || !list.Any();
         }
+        public static bool NotNullOrEmpty<T>(this IEnumerable<T> list)
+        {
+            return !list.IsNullOrEmpty();
+        }
     }
 }
