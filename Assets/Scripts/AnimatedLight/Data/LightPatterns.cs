@@ -5,7 +5,7 @@ namespace AnimatedLight.Data
     public static class LightPatterns
     {
         private static readonly LightPatternData Off = new(LightType.Off, "a");
-        private static readonly LightPatternData On = new(LightType.On, "z");
+        private static readonly LightPatternData Double = new(LightType.Double, "z");
         private static readonly LightPatternData Normal = new(LightType.Normal, "m");
         private static readonly LightPatternData FlickerFirst = new(LightType.FlickerFirst, "mmnmmommommnonmmonqnmmo");
         private static readonly LightPatternData FlickerSecond = new(LightType.FlickerSecond, "nmonqnmomnmomomno");
@@ -21,7 +21,7 @@ namespace AnimatedLight.Data
         
         private static readonly LightPatternData[] AllLightPatterns =
         {
-            Off, On, Normal, FlickerFirst, FlickerSecond,
+            Off, Double, Normal, FlickerFirst, FlickerSecond,
             SlowStrongPulse, CandleFirst, CandleSecond, CandleThird,
             SlowStrobe, FastStrobe, GentlePulse, SlowPulse, DoublePulse,
         };

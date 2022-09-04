@@ -13,12 +13,13 @@ namespace AnimatedLight
 
         [SerializeField] private float animationDelay = 3f;
         [SerializeField] private float maxLightIntensity = 1f;
+        
         [Space, SerializeField] private float tickTime = 0.1f;
         [SerializeField] private bool smoothTransition;
 
         [Space, SerializeField] private string pattern;
+        
         private int _maxValue;
-
         private Coroutine _animationCoroutine;
         private Coroutine _transitionCoroutine;
         

@@ -3,7 +3,7 @@ namespace AnimatedLight.Data
     public enum LightType
     {
         Off = 0,
-        On = 1,
+        Double = 1,
         Normal = 2,
         FlickerFirst = 3,
         FlickerSecond = 4,
