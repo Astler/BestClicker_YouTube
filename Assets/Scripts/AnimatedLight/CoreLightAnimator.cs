@@ -11,8 +11,8 @@ namespace AnimatedLight
     {
         [SerializeField] private LightType selectedPattern;
 
-        [SerializeField] private float animationDelay = 3f;
-        [SerializeField] private float maxLightIntensity = 1f;
+        [SerializeField] private float animationDelay = 1f;
+        [SerializeField] private float normalLightIntensity = 1f;
         
         [Space, SerializeField] private float tickTime = 0.1f;
         [SerializeField] private bool smoothTransition;
@@ -33,7 +33,7 @@ namespace AnimatedLight
 
             if (pattern.NotNullOrEmpty())
             {
-                foreach (char letter in pattern)
+                foreach (char letter in pattern.ToLower())
                 {
                     float targetIntensity = CalculateIntensityByLetter(letter);
 
@@ -77,7 +77,7 @@ namespace AnimatedLight
         }
 
         private float CalculateIntensityByLetter(char letter) =>
-            (float)CharToInt(letter) / _maxValue * maxLightIntensity * 2;
+            (float)CharToInt(letter) / _maxValue * normalLightIntensity * 2;
 
         private static int CharToInt(char character) => character - 97;
 
