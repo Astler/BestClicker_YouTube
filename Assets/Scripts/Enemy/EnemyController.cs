@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Enemy.Pool;
-using Extensions.Enumerable;
 using UnityEngine;
 
 namespace Enemy
@@ -11,11 +10,12 @@ namespace Enemy
     [RequireComponent(typeof(EnemyPool))]
     public class EnemyController : MonoBehaviour
     {
-        [SerializeField] private float spawnDelay = 1f;
         [SerializeField] private int maxEnemies = 3;
+        [SerializeField] private float spawnDelay = 1f;
 
-        private readonly List<EnemyView> _currentEnemies = new();
         private EnemyPool _enemyPool;
+        private readonly List<EnemyView> _currentEnemies = new();
+        private float _timeFromLastEnemy;
         private Coroutine _spawnCoroutine;
 
         public Action EnemyKilled;
@@ -23,20 +23,18 @@ namespace Enemy
 
         public void TryToHitEnemy()
         {
-            if (_currentEnemies.IsNullOrEmpty())
+            if (_currentEnemies.Count == 0)
             {
                 Debug.Log("No enemy to hit");
                 return;
             }
 
-            EnemyView firstEnemy = _currentEnemies.FirstOrDefault();
+            EnemyView firstEnemy = _currentEnemies.First();
+            firstEnemy.Die();
 
-            if (firstEnemy != null)
-            {
-                firstEnemy.Die();
-                _currentEnemies.Remove(firstEnemy);
-                EnemyKilled?.Invoke();
-            }
+            _currentEnemies.Remove(firstEnemy);
+
+            EnemyKilled?.Invoke();
         }
 
         private void SpawnEnemy() => SpawnEnemy(true);
@@ -79,10 +77,6 @@ namespace Enemy
         private void Awake()
         {
             _enemyPool = GetComponent<EnemyPool>();
-        }
-
-        private void Start()
-        {
             SpawnEnemy(false);
             SpawnEnemy();
 

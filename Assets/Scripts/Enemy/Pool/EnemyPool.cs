@@ -16,19 +16,18 @@ namespace Enemy.Pool
         {
             for (int i = 0; i < poolSize; i++)
             {
-                CreatePoolObject();
+                CreatePoolElement();
             }
         }
 
         public EnemyView Spawn()
         {
-            if (_enemyPool.Count == 0) CreatePoolObject();
+            if (_enemyPool.Count == 0) CreatePoolElement();
 
-            EnemyView poolEnemy = _enemyPool.Pop();
-            poolEnemy.gameObject.SetActive(true);
-            poolEnemy.Spawned(new EnemyViewInfo(), this);
-
-            return poolEnemy;
+            EnemyView enemy = _enemyPool.Pop();
+            enemy.gameObject.SetActive(true);
+            enemy.Spawned(new EnemyViewInfo(), this);
+            return enemy;
         }
 
         public void Despawn(EnemyView element)
@@ -37,7 +36,7 @@ namespace Enemy.Pool
             _enemyPool.Push(element);
         }
 
-        private void CreatePoolObject()
+        private void CreatePoolElement()
         {
             EnemyView poolObject = Instantiate(enemyPrefab, spawnPosition.position, Quaternion.identity, transform);
             poolObject.gameObject.SetActive(false);
