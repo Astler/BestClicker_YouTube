@@ -43,12 +43,17 @@
   <ItemGroup>
      <Compile Include="Assets/Scripts/AnimatedLight/Light2DAnimator.cs" />
      <Compile Include="Assets/Scripts/Screens/MainScreenView.cs" />
-     <Compile Include="Assets/Scripts/Enemy/EnemyView.cs" />
+     <Compile Include="Assets/Scripts/Enemy/EnemyPresenter.cs" />
+     <Compile Include="Assets/Scripts/Enemy/View/EnemyView.cs" />
      <Compile Include="Assets/Scripts/Enemy/Pool/IPoolElement.cs" />
+     <Compile Include="Assets/Scripts/Enemy/View/EnemyAnimationsView.cs" />
      <Compile Include="Assets/Scripts/Enemy/EnemyController.cs" />
+     <Compile Include="Assets/Scripts/Enemy/Enemy.cs" />
      <Compile Include="Assets/Scripts/AnimatedLight/Data/LightPatterns.cs" />
      <Compile Include="Assets/Scripts/Data/PlayerPrefsData.cs" />
+     <Compile Include="Assets/Scripts/Enemy/IEnemy.cs" />
      <Compile Include="Assets/Scripts/Enemy/Pool/IPool.cs" />
+     <Compile Include="Assets/Scripts/Enemy/View/IEnemyView.cs" />
      <Compile Include="Assets/Scripts/Enemy/Pool/EnemyPool.cs" />
      <Compile Include="Assets/Scripts/AnimatedLight/CoreLightAnimator.cs" />
      <Compile Include="Assets/Scripts/Enemy/Data/EnemyViewInfo.cs" />
@@ -58,6 +63,7 @@
      <Compile Include="Assets/Scripts/Extensions/UserInterface/UserInterfaceExtensions.cs" />
      <Compile Include="Assets/Scripts/ProjectContext.cs" />
      <Compile Include="Assets/Scripts/AnimatedLight/Data/LightType.cs" />
+     <Compile Include="Assets/Scripts/Enemy/View/EnemyUIView.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />

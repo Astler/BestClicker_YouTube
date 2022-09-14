@@ -4,7 +4,7 @@ namespace Enemy.Data
 {
     public struct EnemyViewInfo
     {
-        public Vector3 Position;
-        public float Scale;
+        public Vector3 SpawnPosition;
+        public Vector3 TargetPosition;
     }
 }

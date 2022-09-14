@@ -1,32 +1,25 @@
 using System.Collections.Generic;
 using Enemy.Data;
+using Enemy.View;
 using UnityEngine;
 
 namespace Enemy.Pool
 {
-    public class EnemyPool : MonoBehaviour, IPool<EnemyView>
+    public class EnemyPool : MonoBehaviour, IPool<EnemyViewInfo, EnemyView>
     {
         [SerializeField] private int poolSize = 5;
         [Space, SerializeField] private EnemyView enemyPrefab;
-        [SerializeField] private Transform spawnPosition;
 
+        private Transform _transform;
         private readonly Stack<EnemyView> _enemyPool = new();
 
-        private void Awake()
-        {
-            for (int i = 0; i < poolSize; i++)
-            {
-                CreatePoolElement();
-            }
-        }
-
-        public EnemyView Spawn()
+        public EnemyView Spawn(EnemyViewInfo enemyViewInfo)
         {
             if (_enemyPool.Count == 0) CreatePoolElement();
 
             EnemyView enemy = _enemyPool.Pop();
             enemy.gameObject.SetActive(true);
-            enemy.Spawned(new EnemyViewInfo(), this);
+            enemy.Spawned(enemyViewInfo, this);
             return enemy;
         }
 
@@ -38,9 +31,19 @@ namespace Enemy.Pool
 
         private void CreatePoolElement()
         {
-            EnemyView poolObject = Instantiate(enemyPrefab, spawnPosition.position, Quaternion.identity, transform);
+            EnemyView poolObject = Instantiate(enemyPrefab, _transform.position, Quaternion.identity, _transform);
             poolObject.gameObject.SetActive(false);
             _enemyPool.Push(poolObject);
+        }
+
+        private void Awake()
+        {
+            _transform = transform;
+
+            for (int i = 0; i < poolSize; i++)
+            {
+                CreatePoolElement();
+            }
         }
     }
 }

@@ -1,8 +1,8 @@
 namespace Enemy.Pool
 {
-    public interface IPool<T>
+    public interface IPool<D, T>
     {
-        T Spawn();
+        T Spawn(D data);
         void Despawn(T element);
     }
 }

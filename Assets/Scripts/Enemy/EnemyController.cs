@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Enemy.Data;
 using Enemy.Pool;
+using Enemy.View;
 using UnityEngine;
 
 namespace Enemy
@@ -10,18 +12,20 @@ namespace Enemy
     [RequireComponent(typeof(EnemyPool))]
     public class EnemyController : MonoBehaviour
     {
-        [SerializeField] private int maxEnemies = 3;
+        [SerializeField] private int maxEnemies = 1;
         [SerializeField] private float spawnDelay = 1f;
+        [SerializeField] private Transform spawnPoint;
+        [SerializeField] private Transform fightPoint;
 
         private EnemyPool _enemyPool;
-        private readonly List<EnemyView> _currentEnemies = new();
+        private readonly List<IEnemy> _currentEnemies = new();
         private float _timeFromLastEnemy;
         private Coroutine _spawnCoroutine;
 
         public Action EnemyKilled;
         public Action<float> RespawnProgress;
 
-        public void TryToHitEnemy()
+        public void TryToHitEnemy(int damageAmount = 1)
         {
             if (_currentEnemies.Count == 0)
             {
@@ -29,12 +33,7 @@ namespace Enemy
                 return;
             }
 
-            EnemyView firstEnemy = _currentEnemies.First();
-            firstEnemy.Die();
-
-            _currentEnemies.Remove(firstEnemy);
-
-            EnemyKilled?.Invoke();
+            _currentEnemies.FirstOrDefault()?.Damage(damageAmount);
         }
 
         private void SpawnEnemy() => SpawnEnemy(true);
@@ -50,7 +49,8 @@ namespace Enemy
 
             if (!withTimer)
             {
-                _currentEnemies.Add(_enemyPool.Spawn());
+                CreateNewEnemy();
+                return;
             }
 
             _spawnCoroutine ??= StartCoroutine(SpawnEnemyTimer());
@@ -67,13 +67,37 @@ namespace Enemy
                 yield return null;
             }
 
-            _currentEnemies.Add(_enemyPool.Spawn());
+            CreateNewEnemy();
             RespawnProgress?.Invoke(0f);
 
             _spawnCoroutine = null;
             SpawnEnemy();
         }
 
+        private void CreateNewEnemy()
+        {
+            Enemy newEnemy = new(10);
+
+            void OnEnemyDie(IEnemy enemy)
+            {
+                enemy.Died -= OnEnemyDie;
+                _currentEnemies.Remove(newEnemy);
+                EnemyKilled?.Invoke();
+            }
+
+            newEnemy.Died += OnEnemyDie;
+            
+            EnemyView enemyView = _enemyPool.Spawn(new EnemyViewInfo
+            {
+                SpawnPosition = spawnPoint.position,
+                TargetPosition = fightPoint.position,
+            });
+            
+            new EnemyPresenter(newEnemy, enemyView);
+                
+            _currentEnemies.Add(newEnemy);
+        }
+        
         private void Awake()
         {
             _enemyPool = GetComponent<EnemyPool>();
