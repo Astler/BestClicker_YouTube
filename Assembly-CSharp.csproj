@@ -43,10 +43,12 @@
   <ItemGroup>
      <Compile Include="Assets/Scripts/AnimatedLight/Light2DAnimator.cs" />
      <Compile Include="Assets/Scripts/Screens/MainScreenView.cs" />
+     <Compile Include="Assets/Scripts/Assets/GameAssetsScriptableObject.cs" />
      <Compile Include="Assets/Scripts/Enemy/EnemyPresenter.cs" />
      <Compile Include="Assets/Scripts/Enemy/View/EnemyView.cs" />
      <Compile Include="Assets/Scripts/Enemy/Pool/IPoolElement.cs" />
      <Compile Include="Assets/Scripts/Enemy/View/EnemyAnimationsView.cs" />
+     <Compile Include="Assets/Scripts/Enemy/Data/EnemyAssetInfo.cs" />
      <Compile Include="Assets/Scripts/Enemy/EnemyController.cs" />
      <Compile Include="Assets/Scripts/Enemy/Enemy.cs" />
      <Compile Include="Assets/Scripts/AnimatedLight/Data/LightPatterns.cs" />
@@ -60,10 +62,13 @@
      <Compile Include="Assets/Scripts/Extensions/Enumerable/EnumerableExtensions.cs" />
      <Compile Include="Assets/Scripts/AnimatedLight/LightAnimator.cs" />
      <Compile Include="Assets/Scripts/AnimatedLight/Data/LightPatternData.cs" />
+     <Compile Include="Assets/Scripts/Assets/EnemyScriptableObject.cs" />
      <Compile Include="Assets/Scripts/Extensions/UserInterface/UserInterfaceExtensions.cs" />
      <Compile Include="Assets/Scripts/ProjectContext.cs" />
      <Compile Include="Assets/Scripts/AnimatedLight/Data/LightType.cs" />
      <Compile Include="Assets/Scripts/Enemy/View/EnemyUIView.cs" />
+     <Compile Include="Assets/Scripts/ScriptableExample/SpawnManagerScriptableObject.cs" />
+     <Compile Include="Assets/Scripts/ScriptableExample/ExampleScript.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
@@ -321,22 +326,22 @@
      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Unsafe">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.Unsafe.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.Unsafe.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil.Mdb">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil.Pdb">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil.Rocks">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/PackageCache/com.unity.visualscripting@1.7.6/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/PackageCache/com.unity.visualscripting@1.7.6/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Android.Types">
      <HintPath>/Applications/Unity/PlaybackEngines/AndroidPlayer/Unity.Android.Types.dll</HintPath>
@@ -711,160 +716,160 @@
      <HintPath>/Applications/Unity/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/mscorlib.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Tilemap.Extras">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.dll</HintPath>
      </Reference>
      <Reference Include="Unity.InternalAPIEngineBridge.001">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VSCode.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.PixelPerfect">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Animation.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="PsdPlugin">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Tilemap.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualStudio.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
      </Reference>
      <Reference Include="PPv2URPConverters">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/PPv2URPConverters.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/PPv2URPConverters.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Core.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Searcher.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.IK.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.2D.IK.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.2D.IK.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Sprite.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Path.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.PlasticSCM.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Rider.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.UI">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Tilemap.Extras.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Psdimporter.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.Runtime">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Core">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Mathematics">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.IK.Runtime">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.ShaderGraph.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Universal.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Shared.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.InternalAPIEditorBridge.001">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Animation.Runtime">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.PixelPerfect.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Mathematics.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Common.Runtime">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.SpriteShape.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Common.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.SpriteShape.Runtime">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State">
-     <HintPath>/Users/vladislavterentyev/Desktop/CAT/Games/Best Clicker/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
+     <HintPath>/Users/vladislavterentyev/Desktop/Reforged Cat/Gamedev/Best Clicker/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>

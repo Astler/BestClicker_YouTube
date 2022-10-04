@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65bc6d86377143ec8640952e3f8725b3, type: 3}
+  m_Name: Skeleton
+  m_EditorClassIdentifier: 
+  spriteLibraryAsset: {fileID: 7108339969198208228, guid: 53cd06251b2394b0884af8c1c49de162, type: 3}
+  interfaceShiftDistance: -0.4

@@ -12,7 +12,9 @@ namespace Enemy
     [RequireComponent(typeof(EnemyPool))]
     public class EnemyController : MonoBehaviour
     {
-        [SerializeField] private int maxEnemies = 1;
+        [SerializeField] private ProjectContext projectContext;
+        
+        [Space, SerializeField] private int maxEnemies = 1;
         [SerializeField] private float spawnDelay = 1f;
         [SerializeField] private Transform spawnPoint;
         [SerializeField] private Transform fightPoint;
@@ -86,11 +88,15 @@ namespace Enemy
             }
 
             newEnemy.Died += OnEnemyDie;
+
+            EnemyAssetInfo randomEnemyAsset = projectContext.GetGameAssets().GetRandomEnemyInfo();
             
             EnemyView enemyView = _enemyPool.Spawn(new EnemyViewInfo
             {
                 SpawnPosition = spawnPoint.position,
                 TargetPosition = fightPoint.position,
+                SpriteLibrary = randomEnemyAsset.SpriteLibrary,
+                InterfaceShiftDistance = randomEnemyAsset.InterfaceShift
             });
             
             new EnemyPresenter(newEnemy, enemyView);

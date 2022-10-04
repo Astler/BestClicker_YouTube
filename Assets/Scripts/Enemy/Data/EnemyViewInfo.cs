@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.U2D.Animation;
 
 namespace Enemy.Data
 {
@@ -6,5 +7,7 @@ namespace Enemy.Data
     {
         public Vector3 SpawnPosition;
         public Vector3 TargetPosition;
+        public SpriteLibraryAsset SpriteLibrary;
+        public float InterfaceShiftDistance;
     }
 }

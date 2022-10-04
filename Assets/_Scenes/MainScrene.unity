@@ -885,7 +885,7 @@ GameObject:
   - component: {fileID: 950111225}
   - component: {fileID: 950111224}
   m_Layer: 0
-  m_Name: GameInstaller
+  m_Name: ProjectContext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -905,6 +905,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainScreenView: {fileID: 762751457}
   enemyController: {fileID: 1258385792}
+  gameAssetsScriptable: {fileID: 11400000, guid: f08c60b459783470b8b47d1c84cd2b83, type: 2}
 --- !u!4 &950111225
 Transform:
   m_ObjectHideFlags: 0
@@ -1200,6 +1201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2761f6e5906b848eca1ff118f0446578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectContext: {fileID: 950111224}
   maxEnemies: 1
   spawnDelay: 0
   spawnPoint: {fileID: 1313954244}

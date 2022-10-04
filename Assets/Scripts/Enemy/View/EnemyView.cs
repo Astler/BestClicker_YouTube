@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using Enemy.Data;
 using Enemy.Pool;
@@ -8,7 +7,6 @@ namespace Enemy.View
 {
     public class EnemyView : MonoBehaviour, IEnemyView, IPoolElement<EnemyViewInfo, IPool<EnemyViewInfo, EnemyView>>
     {
-        [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private EnemyUIView enemyUIView;
         [SerializeField] private EnemyAnimationsView enemyAnimationsView;
         [SerializeField] private float moveDuration = 1f;
@@ -21,15 +19,15 @@ namespace Enemy.View
         public void Die()
         {
             enemyUIView.HideUI();
-            SetColor(Color.red);
-            StartCoroutine(FadeOut(Despawn));
+            enemyAnimationsView.SetColor(Color.red);
+            enemyAnimationsView.StartFadeOutAnimation(Despawn);
         }
 
         public void DamageReceived()
         {
             enemyAnimationsView.PlayHurtAnimation();
         }
-        
+
         public void SetHealthBar(int currentHealth, int maximumHealth)
         {
             enemyUIView.SetHealth(currentHealth, maximumHealth);
@@ -39,8 +37,10 @@ namespace Enemy.View
         {
             _pool = pool;
 
+            enemyUIView.SetUIShift(data.InterfaceShiftDistance);
             enemyUIView.ShowUI();
-            SetColor(Color.white);
+            enemyAnimationsView.SetSpriteLibrary(data.SpriteLibrary);
+            enemyAnimationsView.SetColor(Color.white);
 
             _transform.position = data.SpawnPosition;
 
@@ -65,15 +65,13 @@ namespace Enemy.View
 
             _moveCoroutine = StartCoroutine(MoveToPosition(moveDuration, targetPosition));
         }
-
-        private void SetColor(Color color) => spriteRenderer.color = color;
-
+        
         private IEnumerator MoveToPosition(float duration, Vector3 targetPosition)
         {
             float elapsedTime = 0f;
             Vector3 startPosition = _transform.position;
             enemyAnimationsView.PlayWalkAnimation();
-            
+
             while (elapsedTime < duration)
             {
                 _transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / duration);
@@ -83,19 +81,6 @@ namespace Enemy.View
 
             enemyAnimationsView.PlayIdleAnimation();
             _transform.position = targetPosition;
-        }
-
-        private IEnumerator FadeOut(Action callback = null)
-        {
-            while (spriteRenderer.color.a > 0)
-            {
-                Color color = spriteRenderer.color;
-                color = new Color(color.r, color.g, color.b, color.a - 0.01f);
-                spriteRenderer.color = color;
-                yield return new WaitForSeconds(0.01f);
-            }
-
-            callback?.Invoke();
         }
 
         private void Awake()

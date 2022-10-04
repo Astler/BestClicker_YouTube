@@ -1,3 +1,4 @@
+using Assets;
 using Data;
 using Enemy;
 using Screens;
@@ -7,6 +8,7 @@ public class ProjectContext : MonoBehaviour
 {
     [SerializeField] private MainScreenView mainScreenView;
     [SerializeField] private EnemyController enemyController;
+    [SerializeField] private GameAssetsScriptableObject gameAssetsScriptable;
 
     private void Awake()
     {
@@ -33,4 +35,6 @@ public class ProjectContext : MonoBehaviour
     {
         enemyController.TryToHitEnemy();
     }
+
+    public GameAssetsScriptableObject GetGameAssets() => gameAssetsScriptable;
 }

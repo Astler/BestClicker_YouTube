@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c59732000d974ae5a99abe59d0c00323, type: 3}
+  m_Name: ExampleData
+  m_EditorClassIdentifier: 
+  prefabName: My Prefab
+  numberOfPrefabsToCreate: 20
+  spawnPoints:
+  - {x: 2, y: 1, z: 54}
+  - {x: 0, y: 55, z: 34}
+  - {x: 1, y: 0, z: 2}
+  - {x: 34, y: 1, z: 2}
+  - {x: 12, y: 87, z: 1}
