@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Assets
 {
-    [CreateAssetMenu(fileName = "GameAssetsScriptableObject", menuName = "SO/Game/GameAssetsScriptableObject")]
+    [CreateAssetMenu(fileName = "GameAssetsScriptableObject", menuName = "SO/Game/GameAssetsScriptableObject", order = 51)]
     public class GameAssetsScriptableObject: ScriptableObject
     {
         [SerializeField] private List<EnemyScriptableObject> enemies;
